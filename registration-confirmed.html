@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Received — TWL Startup Intensive</title>
+  <meta name="description" content="Thank you for registering for the TWL Startup Intensive. We'll be in touch within 1–2 business days." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f5;
+      --fg: #1a1a1a;
+      --yellow: #fcfc02;
+      --muted: #7a7a76;
+      --border: rgba(26,26,26,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    ::selection { background: var(--yellow); color: var(--fg); }
+
+    /* NAV */
+    nav {
+      background: var(--fg);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      flex-shrink: 0;
+    }
+    .nav-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: var(--bg);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    /* HERO CONFIRMATION */
+    .confirm-hero {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 5rem 1.5rem 4rem;
+      flex-shrink: 0;
+    }
+    .confirm-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: rgba(249,248,245,0.35);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .confirm-check {
+      width: 52px;
+      height: 52px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .confirm-headline {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      font-size: clamp(3rem, 7vw, 6rem);
+      margin-bottom: 1.25rem;
+    }
+    .confirm-sub {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: rgba(249,248,245,0.65);
+      max-width: 520px;
+    }
+
+    /* BODY */
+    .confirm-body {
+      flex: 1;
+      padding: 4rem 1.5rem 6rem;
+    }
+    .confirm-body-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 640px) {
+      .confirm-body-inner { grid-template-columns: 1fr; }
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1.75rem;
+    }
+    .info-card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-card-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .info-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.875rem;
+      color: var(--fg);
+      line-height: 1.45;
+    }
+    .info-list li .dot {
+      width: 5px;
+      height: 5px;
+      background: var(--yellow);
+      border: 1px solid var(--fg);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+
+    .next-steps-card {
+      background: var(--fg);
+      border: 1px solid var(--fg);
+      border-radius: 2px;
+      padding: 1.75rem;
+      color: var(--bg);
+    }
+    .next-steps-card .info-card-label {
+      color: rgba(249,248,245,0.35);
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    .next-steps-card .info-card-title { color: var(--bg); }
+    .next-steps-card .info-list li { color: rgba(249,248,245,0.75); }
+
+    .return-wrap {
+      max-width: 760px;
+      margin: 2.5rem auto 0;
+      text-align: center;
+    }
+    .btn-return {
+      display: inline-block;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: filter 0.15s;
+    }
+    .btn-return:hover { filter: brightness(1.25); }
+    .return-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--fg);
+      color: rgba(249,248,245,0.4);
+      padding: 2.5rem 1.5rem;
+      flex-shrink: 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--bg);
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(249,248,245,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="./index.html">The Whitening Lab</a>
+</nav>
+
+<!-- CONFIRMATION HERO -->
+<div class="confirm-hero">
+  <div class="confirm-hero-inner">
+    <div class="confirm-check">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <span class="eyebrow">Registration / Received · Sept 19, 2026</span>
+    <h1 class="confirm-headline">YOU'RE<br>ON THE LIST.</h1>
+    <p class="confirm-sub">Your registration has been received. We'll follow up within 1–2 business days to confirm your spot and share payment details.</p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="confirm-body">
+  <div class="confirm-body-inner">
+
+    <div class="info-card">
+      <span class="info-card-label">Event Details</span>
+      <div class="info-card-title">Startup Intensive</div>
+      <ul class="info-list">
+        <li><span class="dot"></span>Saturday, September 19, 2026</li>
+        <li><span class="dot"></span>9:00 AM – 5:00 PM (doors open 8:30 AM)</li>
+        <li><span class="dot"></span>15 Main St. Suite 107, Gray ME 04039</li>
+        <li><span class="dot"></span>Limited to 4 attendees</li>
+        <li><span class="dot"></span>Lunch &amp; coffee included</li>
+      </ul>
+    </div>
+
+    <div class="next-steps-card">
+      <span class="info-card-label">What Happens Next</span>
+      <div class="info-card-title">Next Steps</div>
+      <ul class="info-list">
+        <li><span class="dot"></span>We'll email you within 1–2 business days</li>
+        <li><span class="dot"></span>Your email will include payment details and a confirmation</li>
+        <li><span class="dot"></span>Once payment is received your spot is officially secured</li>
+        <li><span class="dot"></span>You'll receive a full info packet closer to the event date</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="return-wrap">
+    <a href="./index.html" class="btn-return">← Back to Event Page</a>
+    <p class="return-note">Questions? Email us at <a href="mailto:thewhiteninglabco@gmail.com" style="color:inherit;">thewhiteninglabco@gmail.com</a> · 207-650-2622</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">The Whitening Lab</span>
+    <span class="footer-copy">&copy; 2026 The Whitening Lab Clinical LLC · 15 Main St. Suite 107, Gray ME 04039</span>
+  </div>
+</footer>
+
+</body>
+</html>

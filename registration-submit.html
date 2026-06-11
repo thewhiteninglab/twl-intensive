@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — TWL Startup Intensive</title>
+  <meta name="description" content="Register for the TWL Startup Intensive. Choose your tier and secure your spot for September 19, 2026 in Gray, Maine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f5;
+      --fg: #1a1a1a;
+      --yellow: #fcfc02;
+      --muted: #7a7a76;
+      --border: rgba(26,26,26,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--yellow); color: var(--fg); }
+
+    .anton { font-family: 'Anton', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; line-height: 0.9; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-back {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--fg); }
+
+    /* PAGE */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 6rem;
+    }
+    .page-headline {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      margin-bottom: 0.5rem;
+    }
+    .page-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    /* TIER SELECTOR */
+    .tier-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      align-items: stretch;
+    }
+    @media (max-width: 600px) { .tier-selector { grid-template-columns: 1fr; } }
+    .tier-option { position: relative; display: flex; }
+    .tier-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .tier-option label {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      background: #fff;
+    }
+    .tier-option label:hover {
+      border-color: rgba(26,26,26,0.3);
+      box-shadow: 0 0 0 3px rgba(26,26,26,0.06);
+    }
+    .tier-option input[type="radio"]:checked + label {
+      border-color: var(--fg);
+      background: var(--fg);
+      box-shadow: 0 0 0 3px var(--fg), 0 0 28px rgba(26,26,26,0.35);
+    }
+    .tier-option input[type="radio"]:checked + label .tier-opt-name,
+    .tier-option input[type="radio"]:checked + label .tier-opt-price,
+    .tier-option input[type="radio"]:checked + label .tier-opt-desc {
+      color: var(--bg);
+    }
+    .tier-option input[type="radio"]:checked + label .tier-opt-label {
+      color: var(--yellow);
+    }
+    .tier-option input[type="radio"]:checked + label .tier-featured-badge {
+      background: var(--yellow);
+      color: var(--fg);
+    }
+    .tier-opt-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.4rem;
+      transition: color 0.15s;
+    }
+    .tier-opt-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--fg);
+      margin-bottom: 0.5rem;
+      transition: color 0.15s;
+    }
+    .tier-opt-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 0.5rem;
+      transition: color 0.15s;
+    }
+    .tier-opt-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .tier-featured-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 3px 8px;
+      background: var(--yellow);
+      color: var(--fg);
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+
+    /* FORM */
+    .form-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+    @media (max-width: 600px) { .form-box { padding: 1.5rem; } }
+    .form-section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .form-group label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.7rem 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: var(--bg);
+      color: var(--fg);
+      outline: none;
+      -webkit-appearance: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--fg); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-divider { height: 1px; background: var(--border); margin: 1.75rem 0 1.5rem; }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: filter 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { filter: brightness(1.25); }
+    .form-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.8;
+    }
+    .spots-alert {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--yellow);
+      background: rgba(252,252,2,0.08);
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+    .spots-alert span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--fg);
+      color: rgba(249,248,245,0.4);
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: var(--bg);
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(249,248,245,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="./index.html">The Whitening Lab</a>
+  <a class="nav-back" href="./index.html">← Back to Event</a>
+</nav>
+
+<div class="page-wrap">
+  <span class="eyebrow">Registration / Startup Intensive · Sept 19, 2026</span>
+  <h1 class="page-headline">SECURE YOUR<br>SPOT.</h1>
+  <p class="page-sub">Gray, Maine · Saturday, September 19, 2026 · Limited to 4 attendees.</p>
+
+  <div class="spots-alert">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span>Only 4 spots available — select your tier below</span>
+  </div>
+
+  <!-- TIER SELECTION -->
+  <span class="eyebrow">Step 1 / Choose Your Tier</span>
+  <div class="tier-selector" id="tierSelector">
+
+    <div class="tier-option">
+      <input type="radio" name="tier" id="tier1" value="Tier 1 — The Intensive ($1,200)" />
+      <label for="tier1">
+        <span class="tier-opt-label">Tier 1</span>
+        <div class="tier-opt-name">The Intensive</div>
+        <div class="tier-opt-price">$1,200</div>
+        <p class="tier-opt-desc">Full-day training, workbook, branded materials, lunch, live demo, startup worksheets, marketing training, resource guide &amp; Q&amp;A.</p>
+      </label>
+    </div>
+
+    <div class="tier-option">
+      <input type="radio" name="tier" id="tier2" value="Tier 2 — Intensive Plus ($2,500)" />
+      <label for="tier2">
+        <span class="tier-featured-badge">Most Complete</span>
+        <span class="tier-opt-label">Tier 2</span>
+        <div class="tier-opt-name">Intensive Plus</div>
+        <div class="tier-opt-price">$2,500</div>
+        <p class="tier-opt-desc">Everything in Tier 1 plus 30 days of direct support, a private 60-min strategy call, business plan review, marketing review, startup roadmap review, and priority email support.</p>
+      </label>
+    </div>
+
+  </div>
+
+  <!-- REGISTRATION FORM -->
+  <span class="eyebrow" style="margin-top:2.5rem; display:block;">Step 2 / Your Information</span>
+  <div class="form-box">
+    <form id="registrationForm" novalidate>
+      <input type="hidden" name="selectedTier" id="selectedTierInput" value="" />
+
+      <span class="form-section-label">Contact Details</span>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="jane@practice.com" required autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(207) 555-0100" autocomplete="tel" />
+      </div>
+
+      <div class="form-divider"></div>
+      <span class="form-section-label">Professional Background</span>
+
+      <div class="form-group">
+        <label for="role">Your Role *</label>
+        <select id="role" name="role" required>
+          <option value="" disabled selected>Select your role…</option>
+          <option>Dentist</option>
+          <option>Dental Hygienist</option>
+          <option>Dental Assistant</option>
+          <option>Aesthetician / Spa Owner</option>
+          <option>Other Qualified Provider</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="business">Business / Practice Name (if applicable)</label>
+        <input type="text" id="business" name="business" placeholder="Gray Dental Studio" autocomplete="organization" />
+      </div>
+
+      <div class="form-divider"></div>
+      <span class="form-section-label">Anything Else</span>
+
+      <div class="form-group">
+        <label for="message">Questions or context (optional)</label>
+        <textarea id="message" name="message" placeholder="Current experience, goals, questions…"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Complete Registration →</button>
+      <p class="form-note" id="tierWarning" style="display:none; color:#c0392b;">Please select a tier above before submitting.</p>
+      <p class="form-note">We'll follow up within 1–2 business days to confirm your seat and payment details.</p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">The Whitening Lab</span>
+    <span class="footer-copy">&copy; 2026 The Whitening Lab Clinical LLC · 15 Main St. Suite 107, Gray ME 04039</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = 'https://htojnrcybzkspinjeqxw.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh0b2pucmN5Ynprc3BpbmplcXh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMzc2MzgsImV4cCI6MjA5NjcxMzYzOH0.FTj96vTqOjdzZmxw19Yf7_kn_p3200zUPJ6sfaTp-1Y';
+  const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Pre-select tier from URL param
+  const params = new URLSearchParams(window.location.search);
+  const tierParam = params.get('tier');
+  if (tierParam === '1') document.getElementById('tier1').checked = true;
+  else if (tierParam === '2') document.getElementById('tier2').checked = true;
+
+  const submitBtn = document.querySelector('.btn-submit');
+
+  document.getElementById('registrationForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Validate tier selection
+    const selectedTier = document.querySelector('input[name="tier"]:checked');
+    if (!selectedTier) {
+      document.getElementById('tierWarning').style.display = 'block';
+      document.getElementById('tierSelector').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    document.getElementById('tierWarning').style.display = 'none';
+
+    // Validate required fields
+    const required = ['firstName', 'lastName', 'email', 'role'];
+    for (const id of required) {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        el.focus();
+        el.style.borderColor = '#c0392b';
+        el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+        return;
+      }
+    }
+
+    // Loading state
+    submitBtn.textContent = 'Submitting…';
+    submitBtn.disabled = true;
+
+    const payload = {
+      first_name:  document.getElementById('firstName').value.trim(),
+      last_name:   document.getElementById('lastName').value.trim(),
+      email:       document.getElementById('email').value.trim(),
+      phone:       document.getElementById('phone').value.trim() || null,
+      role:        document.getElementById('role').value,
+      business:    document.getElementById('business').value.trim() || null,
+      message:     document.getElementById('message').value.trim() || null,
+      tier:        selectedTier.value,
+    };
+
+    const { error } = await db.from('registrations').insert(payload);
+
+    if (error) {
+      console.error('Supabase insert error:', error);
+    }
+
+    // Always redirect — even if insert failed, don't leave visitor stranded
+    window.location.href = './registration-confirmed.html';
+  });
+</script>
+
+</body>
+</html>

@@ -623,6 +623,170 @@
     }
     .faq-a.open { max-height: 300px; padding-bottom: 1.25rem; }
 
+    /* ── PRICING TIERS ───────────────────────────── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0;
+      align-items: stretch;
+    }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .pricing-card {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card-featured {
+      border-color: var(--yellow);
+      box-shadow: 0 0 40px rgba(252,252,2,0.22), 0 0 80px rgba(252,252,2,0.08);
+    }
+    .pricing-card-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .pricing-card-featured .pricing-card-header {
+      border-bottom-color: rgba(252,252,2,0.2);
+    }
+    .pricing-tier-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: rgba(249,248,245,0.4);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .pricing-tier-name {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--bg);
+      line-height: 1;
+      margin-bottom: 0.875rem;
+    }
+    .pricing-price {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--bg);
+      line-height: 1;
+    }
+    .pricing-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 4px 10px;
+      background: var(--yellow);
+      color: var(--fg);
+      border-radius: 2px;
+    }
+    .pricing-card-body {
+      padding: 1.5rem 2rem;
+      flex: 1;
+    }
+    .pricing-section-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(249,248,245,0.35);
+      margin-bottom: 0.875rem;
+    }
+    .pricing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .pricing-list li {
+      font-size: 0.9rem;
+      color: rgba(249,248,245,0.75);
+      line-height: 1.4;
+      padding-left: 16px;
+      position: relative;
+    }
+    .pricing-list li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+    .pricing-card-footer {
+      padding: 1.5rem 2rem 2rem;
+    }
+    .btn-pricing-ghost {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: transparent;
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 1.5rem;
+      border: 1px solid rgba(249,248,245,0.3);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-pricing-ghost:hover { background: rgba(249,248,245,0.08); border-color: rgba(249,248,245,0.6); }
+    .btn-pricing-yellow {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--yellow);
+      color: var(--fg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 1.5rem;
+      border: none;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: filter 0.15s;
+    }
+    .btn-pricing-yellow:hover { filter: brightness(1.06); }
+    .welcome-kit {
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .welcome-kit-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .welcome-kit-item {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      color: rgba(249,248,245,0.55);
+    }
+
     /* ── FOOTER ───────────────────────────────────── */
     footer {
       background: var(--fg);
@@ -775,7 +939,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#top">The Whitening Lab</a>
-  <a class="nav-cta" href="#register">Reserve Your Spot →</a>
+  <a class="nav-cta" href="./registration-submit.html">Reserve Your Spot →</a>
 </nav>
 
 <!-- HERO -->
@@ -796,7 +960,7 @@
         <span class="hero-tag">4 Spots Only</span>
       </div>
       <div class="hero-actions">
-        <a href="#register" class="btn-dark">Reserve Your Spot →</a>
+        <a href="./registration-submit.html" class="btn-dark">Reserve Your Spot →</a>
       </div>
     </div>
     <div class="hero-image">
@@ -1260,216 +1424,99 @@
   </div>
 </section>
 
-<!-- TAKEAWAYS DARK -->
-<section class="section-dark" id="takeaways">
-  <span class="eyebrow" style="color:rgba(249,248,245,0.35);">What You Leave With / Your Kit</span>
+<!-- PRICING TIERS -->
+<section class="section-dark" id="pricing">
+  <span class="eyebrow" style="color:rgba(249,248,245,0.35);">Registration / Choose Your Tier</span>
   <h2 class="section-headline" style="color:var(--bg);">
     YOUR COMPLETE<br><span style="color:#ffffff;">STARTUP KIT.</span>
   </h2>
-  <div class="acc-list">
 
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">01</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Startup Guide</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">The Whitening Lab's comprehensive guide to launching your own whitening business.</p>
-            </div>
-          </div>
-        </div>
+  <div class="pricing-grid">
+
+    <!-- TIER 1 -->
+    <div class="pricing-card">
+      <div class="pricing-card-header">
+        <span class="pricing-tier-label">Tier 1</span>
+        <h3 class="pricing-tier-name">The Intensive</h3>
+        <div class="pricing-price">$1,200</div>
+      </div>
+      <div class="pricing-card-body">
+        <p class="pricing-section-title">Includes</p>
+        <ul class="pricing-list">
+          <li>Full-day in-person training at The Whitening Lab</li>
+          <li>Printed Intensive Workbook</li>
+          <li>Branded notebook</li>
+          <li>Branded pen</li>
+          <li>Branded attendee name badge</li>
+          <li>Branded tote bag</li>
+          <li>Lunch</li>
+          <li>Live whitening demonstration</li>
+          <li>Startup cost worksheets</li>
+          <li>Marketing &amp; social media training</li>
+          <li>Resource guide</li>
+          <li>Q&amp;A session</li>
+        </ul>
+        <p class="pricing-section-title" style="margin-top:1.5rem;">Students Leave With</p>
+        <ul class="pricing-list">
+          <li>A complete workbook</li>
+          <li>Startup roadmap</li>
+          <li>Resource guide</li>
+          <li>Marketing ideas</li>
+          <li>Action plan</li>
+        </ul>
+      </div>
+      <div class="pricing-card-footer">
+        <a href="./registration-submit.html?tier=1" class="btn-pricing-ghost">Register — Tier 1 →</a>
       </div>
     </div>
 
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">02</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Startup Binder</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">A physical binder packed with reference materials, checklists, and clinical protocols.</p>
-            </div>
-          </div>
-        </div>
+    <!-- TIER 2 -->
+    <div class="pricing-card pricing-card-featured">
+      <div class="pricing-card-header">
+        <span class="pricing-tier-label" style="color:var(--yellow);">Tier 2</span>
+        <h3 class="pricing-tier-name">Intensive Plus</h3>
+        <div class="pricing-price" style="color:var(--yellow);">$2,500</div>
+        <span class="pricing-badge">Most Complete</span>
       </div>
-    </div>
-
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">03</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Vendor List</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">Vetted suppliers for the exact equipment, gels, and supplies used at The Whitening Lab.</p>
-            </div>
-          </div>
-        </div>
+      <div class="pricing-card-body">
+        <p class="pricing-section-title">Everything in Tier 1, Plus</p>
+        <ul class="pricing-list">
+          <li>30 days of direct support</li>
+          <li>One private 60-minute strategy call</li>
+          <li>Business plan review</li>
+          <li>Marketing review</li>
+          <li>Startup roadmap review</li>
+          <li>Priority email support for 30 days</li>
+        </ul>
+        <p class="pricing-section-title" style="margin-top:1.5rem;">Bonus Resources</p>
+        <ul class="pricing-list">
+          <li>Startup Toolkit</li>
+          <li>Sample forms</li>
+          <li>Sample policies</li>
+          <li>Aftercare templates</li>
+          <li>Vendor list</li>
+          <li>Equipment and supply guide</li>
+        </ul>
       </div>
-    </div>
-
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">04</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Pricing Templates</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">Ready-to-use pricing structure templates you can adapt for your market and service menu.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">05</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Patient Forms</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">Intake, consent, and aftercare forms ready for immediate use in your practice.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="acc-row-dark acc-row">
-      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
-        <span class="acc-num">06</span>
-        <div class="acc-title-group">
-          <span class="acc-title" style="color:var(--bg);">Marketing Resources</span>
-        </div>
-        <span class="acc-chevron">+</span>
-      </button>
-      <div class="acc-body">
-        <div class="acc-body-inner">
-          <div class="acc-body-content">
-            <div class="acc-body-content-left">
-              <p class="acc-body-text acc-body-text-dark">Content ideas, social templates, and growth strategies to start attracting clients from day one.</p>
-            </div>
-          </div>
-        </div>
+      <div class="pricing-card-footer">
+        <a href="./registration-submit.html?tier=2" class="btn-pricing-yellow">Register — Intensive Plus →</a>
       </div>
     </div>
 
   </div>
-</section>
 
-<!-- REGISTER -->
-<section class="section-white" id="register">
-  <span class="eyebrow">Register / Secure Your Seat</span>
-
-  <div class="register-layout">
-    <div class="register-left">
-      <h2 class="section-headline" style="margin-bottom:1rem;">RESERVE<br>YOUR SPOT.</h2>
-      <p>Saturday, September 19, 2026 · Gray, Maine. Doors open at 8:30 AM. Only 4 spots available for this event.</p>
-      <div class="check-list">
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Full-day training (9 AM – 5 PM)
-        </div>
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Live patient demonstration
-        </div>
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Lunch &amp; coffee included
-        </div>
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Complete startup resource kit
-        </div>
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Certificate of completion
-        </div>
-        <div class="check-item">
-          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
-          Limited to 4 attendees
-        </div>
-      </div>
-
-    </div>
-    <div>
-      <div class="register-form-box">
-        <div class="spots-alert">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <span>Only 4 spots available for this event</span>
-        </div>
-        <div class="success-msg" id="successMsg" role="alert">
-          <p>Request received.<br/>We'll be in touch within 1–2 business days<br/>to confirm your seat.</p>
-        </div>
-        <form id="registerForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" />
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="jane@practice.com" required autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(207) 555-0100" autocomplete="tel" />
-          </div>
-          <div class="form-group">
-            <label for="role">Your Role</label>
-            <select id="role" name="role" required>
-              <option value="" disabled selected>Select your role…</option>
-              <option>Dentist</option>
-              <option>Dental Hygienist</option>
-              <option>Dental Assistant</option>
-              <option>Aesthetician / Spa Owner</option>
-              <option>Other Qualified Provider</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Questions or context (optional)</label>
-            <textarea id="message" name="message" placeholder="Current experience, goals, questions…"></textarea>
-          </div>
-          <button type="submit" class="btn-yellow">Request My Spot →</button>
-          <p class="form-note">We'll follow up within 1–2 business days to confirm.</p>
-        </form>
-      </div>
+  <!-- WELCOME KIT (all attendees) -->
+  <div class="welcome-kit">
+    <p class="pricing-section-title" style="color:rgba(249,248,245,0.4); margin-bottom:1rem;">Welcome Kit — Included for All Attendees</p>
+    <div class="welcome-kit-items">
+      <span class="welcome-kit-item">Branded tote bag</span>
+      <span class="welcome-kit-item">Printed Intensive Workbook</span>
+      <span class="welcome-kit-item">Branded notebook</span>
+      <span class="welcome-kit-item">Branded pen</span>
+      <span class="welcome-kit-item">Custom event name badge</span>
     </div>
   </div>
+
 </section>
 
 <!-- LOCATION -->
@@ -1544,7 +1591,7 @@
         What does it cost to attend?
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a">Pricing is shared when you submit a registration request. We'll follow up directly with everything you need to confirm your seat.</div>
+      <div class="faq-a">Two tiers are available: Tier 1 — The Intensive at $1,200, and Tier 2 — Intensive Plus at $2,500. Tier 2 includes everything in Tier 1 plus 30 days of direct support, a private strategy call, and a full business plan review. See the pricing section above for a full breakdown.</div>
     </div>
 
     <div class="faq-row">
@@ -1611,16 +1658,6 @@
     });
   });
 
-  document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (!this.firstName.value.trim() || !this.lastName.value.trim() || !this.email.value.trim() || !this.role.value) {
-      const first = Array.from(this.elements).find(el => el.required && !el.value.trim());
-      if (first) first.focus();
-      return;
-    }
-    this.style.display = 'none';
-    document.getElementById('successMsg').style.display = 'block';
-  });
 </script>
 
 </body>
