@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Intensive — The Whitening Lab</title>
+  <meta name="description" content="A full-day, hands-on training for dental professionals and qualified providers who want to add whitening services or launch a whitening business. September 19, 2026 · Gray, Maine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f8f5;
+      --fg: #1a1a1a;
+      --yellow: #fcfc02;
+      --muted: #7a7a76;
+      --border: rgba(26,26,26,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--yellow); color: var(--fg); }
+
+    /* ── TYPE ─────────────────────────────────────── */
+    .anton {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 0.9;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .accent-outline {
+      color: var(--yellow);
+      text-shadow:
+        -1px -1px 0 var(--fg),
+         1px -1px 0 var(--fg),
+        -1px  1px 0 var(--fg),
+         1px  1px 0 var(--fg);
+    }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 35s linear infinite;
+      will-change: transform;
+    }
+
+    /* ── NAV ──────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--fg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.6rem 1.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: filter 0.15s;
+    }
+    .nav-cta:hover { filter: brightness(1.06); }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      padding: 3rem 1.5rem 2.5rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(3rem, 7vw, 6rem);
+      margin-bottom: 1.5rem;
+    }
+    .hero-sub {
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--fg);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 6px 12px;
+      border: 1px solid var(--fg);
+      border-radius: 2px;
+      color: var(--fg);
+    }
+    .hero-tag.filled {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn-dark {
+      display: inline-block;
+      background: var(--fg);
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: filter 0.15s;
+    }
+    .btn-dark:hover { filter: brightness(1.25); }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--fg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 2rem;
+      border: 1px solid var(--fg);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { background: var(--fg); color: var(--bg); }
+    .btn-yellow {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--fg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.875rem 2rem;
+      border-radius: 0;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: filter 0.15s;
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+    .btn-yellow:hover { filter: brightness(1.05); }
+
+    /* ── DARK MARQUEE ─────────────────────────────── */
+    .marquee-dark {
+      background: var(--fg);
+      overflow: hidden;
+      padding: 12px 0;
+    }
+    .marquee-dark-item {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: #fff;
+      padding: 0 1.5rem;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .marquee-dark-dot {
+      color: rgba(255,255,255,0.25);
+      padding: 0;
+      font-size: 0.95rem;
+      font-family: 'Anton', sans-serif;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ─────────────────────────────────── */
+    .section { padding: 4rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .section-dark { background: var(--fg); color: var(--bg); padding: 4rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .section-white { background: #fff; padding: 4rem 1.5rem; border-bottom: 1px solid var(--border); }
+
+    .section-headline {
+      font-family: 'Anton', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── ABOUT STATS ROW ─────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+    .stat-cell {
+      padding: 1.75rem 0;
+      border-right: 1px solid var(--border);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:not(:first-child) { padding-left: 1.5rem; }
+    .stat-big {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-big.yellow {
+      color: var(--yellow);
+      text-shadow:
+        -1px -1px 0 var(--fg),
+         1px -1px 0 var(--fg),
+        -1px  1px 0 var(--fg),
+         1px  1px 0 var(--fg);
+    }
+    .stat-desc {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .about-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    @media (max-width: 700px) { .about-body-grid { grid-template-columns: 1fr; gap: 1.5rem; } }
+    .about-body-grid p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+    .about-body-grid p + p { margin-top: 1rem; color: var(--muted); }
+
+    /* ── ACCORDION LIST (curriculum, schedule, takeaways) ── */
+    .acc-list { margin-top: 0; }
+    .acc-row {
+      border-top: 1px solid var(--border);
+    }
+    .acc-row:last-child { border-bottom: 1px solid var(--border); }
+    .acc-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      color: var(--fg);
+      transition: opacity 0.15s;
+    }
+    .acc-trigger:hover { opacity: 0.75; }
+    .acc-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+    .acc-title-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .acc-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.1rem, 3vw, 1.7rem);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .acc-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .badge-yellow { background: var(--yellow); color: var(--fg); }
+    .badge-dark { background: var(--fg); color: var(--yellow); }
+    .badge-muted { background: rgba(26,26,26,0.07); color: var(--muted); }
+    .badge-live { background: var(--yellow); color: var(--fg); }
+    .acc-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+    .acc-chevron {
+      font-size: 0.9rem;
+      transition: transform 0.25s;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .acc-trigger[aria-expanded="true"] .acc-chevron { transform: rotate(45deg); }
+    .acc-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+    .acc-body.open { grid-template-rows: 1fr; }
+    .acc-body-inner {
+      overflow: hidden;
+    }
+    .acc-body-content {
+      display: grid;
+      grid-template-columns: 36px 1fr 1fr;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+    }
+    @media (max-width: 700px) { .acc-body-content { grid-template-columns: 1fr; padding-left: 0; } }
+    .acc-body-content-left { grid-column: 2; }
+    .acc-body-content-right { grid-column: 3; }
+    @media (max-width: 700px) {
+      .acc-body-content-left { grid-column: 1; }
+      .acc-body-content-right { grid-column: 1; }
+    }
+    .acc-body-text {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+    .acc-body-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .acc-body-list li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      padding-left: 12px;
+      position: relative;
+    }
+    .acc-body-list li::before {
+      content: '+';
+      position: absolute;
+      left: 0;
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    /* Dark accordion variant */
+    .acc-row-dark { border-top: 1px solid rgba(255,255,255,0.1); }
+    .acc-row-dark:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .acc-trigger-dark {
+      color: var(--bg);
+    }
+    .acc-trigger-dark .acc-num { color: rgba(249,248,245,0.3); }
+    .acc-trigger-dark .acc-chevron { color: rgba(249,248,245,0.3); }
+    .acc-body-text-dark { color: rgba(249,248,245,0.65); }
+    .acc-body-list-dark li { color: rgba(249,248,245,0.45); }
+    .acc-body-list-dark li::before { color: var(--yellow); }
+
+    /* ── REGISTER ─────────────────────────────────── */
+    .register-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .register-layout { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .register-left p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 10px; }
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+    .check-box {
+      width: 18px;
+      height: 18px;
+      background: var(--yellow);
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .register-form-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2rem;
+    }
+    .spots-alert {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--yellow);
+      background: rgba(252,252,2,0.08);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .spots-alert span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg);
+    }
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .form-group label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.7rem 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: var(--bg);
+      color: var(--fg);
+      outline: none;
+      -webkit-appearance: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--fg); }
+    .form-group textarea { resize: vertical; min-height: 72px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .form-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.8;
+    }
+    .success-msg {
+      display: none;
+      padding: 1.5rem;
+      border: 1px solid rgba(252,252,2,0.4);
+      background: rgba(252,252,2,0.06);
+      border-radius: 2px;
+      text-align: center;
+    }
+    .success-msg p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--fg);
+      line-height: 2;
+    }
+
+    /* ── LOCATION ─────────────────────────────────── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 700px) { .location-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .location-map {
+      height: 280px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      background: rgba(26,26,26,0.04);
+    }
+    .location-map iframe { width: 100%; height: 100%; border: none; }
+    .location-rows { display: flex; flex-direction: column; }
+    .location-row {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .location-row:first-child { border-top: 1px solid var(--border); }
+    .loc-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .loc-value { font-size: 0.95rem; font-weight: 600; }
+    .loc-sub { font-size: 0.875rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── FAQ ──────────────────────────────────────── */
+    .faq-row { border-top: 1px solid var(--border); }
+    .faq-row:last-child { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+      color: var(--fg);
+      gap: 1rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      background: var(--fg);
+      color: var(--yellow);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.25s;
+      line-height: 1;
+    }
+    .faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-a.open { max-height: 300px; padding-bottom: 1.25rem; }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--fg);
+      color: rgba(249,248,245,0.4);
+      padding: 3rem 1.5rem;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(249,248,245,0.08);
+      margin-bottom: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Anton', sans-serif;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: var(--bg);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .footer-tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: rgba(249,248,245,0.3);
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: right;
+    }
+    .footer-links a {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(249,248,245,0.4);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--yellow); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(249,248,245,0.2);
+    }
+
+    /* ── HERO IMAGE LAYOUT ───────────────────────── */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-image { order: -1; }
+    }
+    .hero-image {
+      border-radius: 2px;
+      overflow: hidden;
+      max-height: 520px;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      max-height: 520px;
+    }
+
+    /* ── ATTENDEE SLOTS ──────────────────────────── */
+    .attendee-slots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .attendee-slot {
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      text-align: center;
+      padding: 1.75rem 1rem 1.25rem;
+      background: var(--bg);
+    }
+    .attendee-slot-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .attendee-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 0.875rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(26,26,26,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .attendee-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .attendee-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.575rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .attendee-name.open {
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      nav, .hero, .section, .section-dark, .section-white { padding-left: 1.25rem; padding-right: 1.25rem; }
+      footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#top">The Whitening Lab</a>
+  <a class="nav-cta" href="#register">Reserve Your Spot →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="hero-kicker">Training / Startup Intensive · September 19, 2026</span>
+      <h1>
+        BUILD.<br>
+        LAUNCH.<br>
+        <span class="accent-outline">GROW.</span>
+      </h1>
+      <p class="hero-sub">Professional teeth whitening training by the actual team behind The Whitening Lab — every step from startup costs to your first live patient, taught in one day.</p>
+      <div class="hero-meta">
+        <span class="hero-tag filled">Sept 19, 2026</span>
+        <span class="hero-tag">Saturday · 9 AM – 5 PM</span>
+        <span class="hero-tag">Gray, Maine</span>
+        <span class="hero-tag">4 Spots Only</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#register" class="btn-dark">Reserve Your Spot →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./team.jpg" alt="The Whitening Lab team" />
+    </div>
+  </div>
+</section>
+
+<!-- DARK MARQUEE -->
+<div class="marquee-dark" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-dark-item">Sept 19, 2026</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Gray, Maine</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">4 Attendees Max</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Live Patient Demo</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Startup Under $10K</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Full-Day Training</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Lunch Included</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Certificate Provided</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Sept 19, 2026</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Gray, Maine</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">4 Attendees Max</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Live Patient Demo</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Startup Under $10K</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Full-Day Training</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Lunch Included</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-dark-item">Certificate Provided</span><span class="marquee-dark-dot">&nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <span class="eyebrow">About / The Event</span>
+  <h2 class="section-headline">
+    EVERYTHING YOU NEED TO<br>
+    <span class="accent-outline">LAUNCH.</span>
+  </h2>
+  <div class="about-body-grid">
+    <p>A full-day, hands-on training designed for dental professionals and qualified providers who want to add whitening to their practice — or build a whitening business from scratch. Not a seminar. Not a webinar. A working day.</p>
+    <p>Taught by the team behind The Whitening Lab — a dental lab tech, a hygienist, and an assistant who built a real business. You'll leave with the full picture: legal, clinical, operational, and marketing. And you'll see a real patient treated live.</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat-cell">
+      <div class="stat-big yellow">8 Hrs</div>
+      <div class="stat-desc">Full day,<br>hands-on training</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big yellow">4</div>
+      <div class="stat-desc">Max attendees —<br>intentionally intimate</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big yellow">&lt;$10K</div>
+      <div class="stat-desc">Cost to launch your<br>whitening business</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-big yellow">Live</div>
+      <div class="stat-desc">Real patient demo<br>with full Q&amp;A</div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="section-white" id="curriculum">
+  <span class="eyebrow">Curriculum / What You'll Cover</span>
+  <h2 class="section-headline">
+    PICK YOUR <span class="accent-outline">TOPIC.</span>
+  </h2>
+  <div class="acc-list">
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">01</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Our Story</span>
+          <span class="acc-badge badge-dark">Start Here</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">How we started, why whitening, building a business for under $10,000, and the mistakes, lessons, and growth that got us here.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>How The Whitening Lab started</li>
+                <li>Why whitening (the market case)</li>
+                <li>Building under $10,000</li>
+                <li>Mistakes and lessons</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">02</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Business Foundations</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Startup costs, equipment and supplies, treatment room setup, insurance and regulations, and pricing structure.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Startup costs breakdown</li>
+                <li>Equipment and supplies</li>
+                <li>Treatment room setup</li>
+                <li>Insurance and regulations</li>
+                <li>Pricing structure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">03</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Patient Experience</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Consultation process, shade matching, photography, scheduling, forms and documentation, and aftercare systems.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Consultation process</li>
+                <li>Shade matching</li>
+                <li>Photography</li>
+                <li>Scheduling and forms</li>
+                <li>Aftercare systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">04</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Live Demonstration</span>
+          <span class="acc-badge badge-live">Live</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">A complete whitening treatment performed on a real patient in real time. Live Q&amp;A throughout every step.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Consultation live</li>
+                <li>Pre-treatment photos</li>
+                <li>Shade assessment</li>
+                <li>Gel application</li>
+                <li>Troubleshooting live</li>
+                <li>Post-treatment photos</li>
+                <li>Aftercare instructions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">05</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Clinical Protocols</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Sensitivity management, fluorosis, existing dental work, realistic expectations, and the most common mistakes providers make.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Sensitivity management</li>
+                <li>Fluorosis cases</li>
+                <li>Existing dental work</li>
+                <li>Setting expectations</li>
+                <li>Common provider mistakes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num">06</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Marketing &amp; Growth</span>
+          <span class="acc-badge badge-muted">Molly</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Social media, content creation, Google reviews, partnerships, and building trust online. Presented by Molly.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Social media strategy</li>
+                <li>Content creation</li>
+                <li>Google reviews</li>
+                <li>Partnerships</li>
+                <li>Building trust online</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="section" id="schedule">
+  <span class="eyebrow">Tentative Schedule / Your Day</span>
+  <h2 class="section-headline">
+    THE <span class="accent-outline">SCHEDULE.</span>
+  </h2>
+  <div class="acc-list">
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">8:30</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Coffee &amp; Registration</span>
+          <span class="acc-badge badge-muted">Arrival</span>
+        </div>
+        <span class="acc-meta">9:00 AM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Doors open at 8:30 AM. Coffee, registration, and welcome. Get settled and meet your fellow attendees before the day begins.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">9:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">The Whitening Lab Story</span>
+        </div>
+        <span class="acc-meta">10:00 AM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">How we started, why whitening, building a business for under $10,000, and the mistakes, lessons, and growth that got us here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">10:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Business Foundations</span>
+        </div>
+        <span class="acc-meta">11:00 AM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Startup costs, equipment and supplies, treatment room setup, insurance and regulations, and pricing structure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">11:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Patient Experience &amp; Ops</span>
+        </div>
+        <span class="acc-meta">12:00 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Consultation process, shade matching, photography, scheduling, forms and documentation, and aftercare systems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">12:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Lunch &amp; Networking</span>
+          <span class="acc-badge badge-muted">Break</span>
+        </div>
+        <span class="acc-meta">1:00 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Catered lunch. A great time to connect with fellow attendees and the team informally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">1:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Live Patient Demo</span>
+          <span class="acc-badge badge-live">Live</span>
+        </div>
+        <span class="acc-meta">3:00 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">A complete whitening treatment on a real patient — from consultation to aftercare, with live Q&amp;A running throughout the entire 2-hour session.</p>
+            </div>
+            <div class="acc-body-content-right">
+              <ul class="acc-body-list">
+                <li>Consultation</li>
+                <li>Pre-treatment photos</li>
+                <li>Shade assessment</li>
+                <li>Treatment setup &amp; application</li>
+                <li>Troubleshooting live</li>
+                <li>Post-treatment photos</li>
+                <li>Aftercare instructions</li>
+                <li>Live Q&amp;A throughout</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">3:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Clinical Protocols &amp; Cases</span>
+        </div>
+        <span class="acc-meta">4:00 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Sensitivity management, fluorosis, existing dental work, realistic expectations, and common mistakes providers make.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">4:00</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Marketing &amp; Growth</span>
+          <span class="acc-badge badge-muted">Molly</span>
+        </div>
+        <span class="acc-meta">4:45 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Social media, content creation, Google reviews, partnerships, and building trust online.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">4:45</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Open Q&amp;A Panel</span>
+          <span class="acc-badge badge-muted">Tabatha, Courtney &amp; Team</span>
+        </div>
+        <span class="acc-meta">5:15 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Your questions answered directly by the full team.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row">
+      <button class="acc-trigger" aria-expanded="false">
+        <span class="acc-num mono" style="font-size:0.55rem;">5:15</span>
+        <div class="acc-title-group">
+          <span class="acc-title">Certificates &amp; Closing</span>
+          <span class="acc-badge badge-muted">Closing</span>
+        </div>
+        <span class="acc-meta">5:30 PM</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text">Certificate of completion, group photos, and closing remarks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TAKEAWAYS DARK -->
+<section class="section-dark" id="takeaways">
+  <span class="eyebrow" style="color:rgba(249,248,245,0.35);">What You Leave With / Your Kit</span>
+  <h2 class="section-headline" style="color:var(--bg);">
+    YOUR COMPLETE<br><span style="color:#ffffff;">STARTUP KIT.</span>
+  </h2>
+  <div class="acc-list">
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">01</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Startup Guide</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">The Whitening Lab's comprehensive guide to launching your own whitening business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">02</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Startup Binder</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">A physical binder packed with reference materials, checklists, and clinical protocols.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">03</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Vendor List</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">Vetted suppliers for the exact equipment, gels, and supplies used at The Whitening Lab.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">04</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Pricing Templates</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">Ready-to-use pricing structure templates you can adapt for your market and service menu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">05</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Patient Forms</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">Intake, consent, and aftercare forms ready for immediate use in your practice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-row-dark acc-row">
+      <button class="acc-trigger acc-trigger-dark" aria-expanded="false">
+        <span class="acc-num">06</span>
+        <div class="acc-title-group">
+          <span class="acc-title" style="color:var(--bg);">Marketing Resources</span>
+        </div>
+        <span class="acc-chevron">+</span>
+      </button>
+      <div class="acc-body">
+        <div class="acc-body-inner">
+          <div class="acc-body-content">
+            <div class="acc-body-content-left">
+              <p class="acc-body-text acc-body-text-dark">Content ideas, social templates, and growth strategies to start attracting clients from day one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="section-white" id="register">
+  <span class="eyebrow">Register / Secure Your Seat</span>
+
+  <div class="register-layout">
+    <div class="register-left">
+      <h2 class="section-headline" style="margin-bottom:1rem;">RESERVE<br>YOUR SPOT.</h2>
+      <p>Saturday, September 19, 2026 · Gray, Maine. Doors open at 8:30 AM. Only 4 spots available for this event.</p>
+      <div class="check-list">
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Full-day training (9 AM – 5 PM)
+        </div>
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Live patient demonstration
+        </div>
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Lunch &amp; coffee included
+        </div>
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Complete startup resource kit
+        </div>
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Certificate of completion
+        </div>
+        <div class="check-item">
+          <span class="check-box"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,5 4,7.5 8.5,2.5"/></svg></span>
+          Limited to 4 attendees
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <div class="register-form-box">
+        <div class="spots-alert">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Only 4 spots available for this event</span>
+        </div>
+        <div class="success-msg" id="successMsg" role="alert">
+          <p>Request received.<br/>We'll be in touch within 1–2 business days<br/>to confirm your seat.</p>
+        </div>
+        <form id="registerForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@practice.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(207) 555-0100" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="role">Your Role</label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select your role…</option>
+              <option>Dentist</option>
+              <option>Dental Hygienist</option>
+              <option>Dental Assistant</option>
+              <option>Aesthetician / Spa Owner</option>
+              <option>Other Qualified Provider</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Questions or context (optional)</label>
+            <textarea id="message" name="message" placeholder="Current experience, goals, questions…"></textarea>
+          </div>
+          <button type="submit" class="btn-yellow">Request My Spot →</button>
+          <p class="form-note">We'll follow up within 1–2 business days to confirm.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+  <span class="eyebrow">Location / Gray, Maine</span>
+  <h2 class="section-headline">FIND THE <span class="accent-outline">LAB.</span></h2>
+  <div class="location-grid">
+    <div class="location-map">
+      <iframe
+        title="Gray, Maine"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46180.97!2d-70.3345!3d43.8876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb2b5e3ee8b2a53%3A0x7c2fbb5b2d3c24e5!2sGray%2C%20ME!5e0!3m2!1sen!2sus!4v1"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="true">
+      </iframe>
+    </div>
+    <div class="location-rows">
+      <div class="location-row">
+        <p class="loc-label">Venue</p>
+        <p class="loc-value">The Whitening Lab</p>
+        <p class="loc-sub">15 Main St. Suite 107, Gray ME 04039</p>
+      </div>
+      <div class="location-row">
+        <p class="loc-label">Date &amp; Time</p>
+        <p class="loc-value">Saturday, September 19, 2026</p>
+        <p class="loc-sub">9:00 AM – 5:00 PM · Doors open 8:30 AM</p>
+      </div>
+      <div class="location-row">
+        <p class="loc-label">Capacity</p>
+        <p class="loc-value">Limited to 4 Attendees</p>
+        <p class="loc-sub">Hands-on. Not a conference.</p>
+      </div>
+      <div class="location-row">
+        <p class="loc-label">Contact</p>
+        <p class="loc-value"><a href="mailto:thewhiteninglabco@gmail.com" style="color:inherit;text-decoration:none;">thewhiteninglabco@gmail.com</a></p>
+        <p class="loc-sub">207-650-2622</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-white" id="faq">
+  <span class="eyebrow">FAQ / Asked. Answered.</span>
+  <h2 class="section-headline">REAL <span class="accent-outline">QUESTIONS.</span></h2>
+  <div style="margin-top: 0;">
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        Who is this intensive for?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Designed for dental professionals — dentists, hygienists, dental assistants — and other qualified providers who want to add whitening to their current practice, or launch a dedicated whitening business.</div>
+    </div>
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        Why only 4 attendees?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">We keep it small so every attendee gets direct access to the team throughout the day. You get real answers to real questions in an environment that mirrors an actual treatment day — not a conference hall.</div>
+    </div>
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        Do I need prior whitening experience?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">No prior whitening experience required. The day is structured to take you from zero to launch-ready. If you already offer whitening, you'll still leave with refined clinical protocols, better marketing systems, and a clearer business model.</div>
+    </div>
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        What does it cost to attend?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Pricing is shared when you submit a registration request. We'll follow up directly with everything you need to confirm your seat.</div>
+    </div>
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        Is lunch included?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">Yes. Lunch and coffee are provided. The catered break runs 12:00–1:00 PM and doubles as networking time with your fellow attendees and the team.</div>
+    </div>
+
+    <div class="faq-row">
+      <button class="faq-q" aria-expanded="false">
+        What's the exact address?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">15 Main St. Suite 107, Gray ME 04039. Once your registration is confirmed we'll send parking details and everything you need for the day.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">The Whitening Lab</span>
+      <span class="footer-tagline">A brighter world, one smile at a time.</span>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:thewhiteninglabco@gmail.com">thewhiteninglabco@gmail.com</a>
+      <a href="tel:2076502622">207-650-2622</a>
+      <a href="https://www.instagram.com/thewhiteninglabco" target="_blank" rel="noopener">@thewhiteninglabco</a>
+      <a href="https://msha.ke/thewhiteninglab" target="_blank" rel="noopener">Book a Treatment →</a>
+      <a href="https://thewhiteninglab.co" target="_blank" rel="noopener">thewhiteninglab.co →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 The Whitening Lab Clinical LLC · 15 Main St. Suite 107, Gray ME 04039</span>
+    <span class="footer-copy">Gray · Alfred · Bar Harbor, ME</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.acc-trigger, .acc-trigger-dark').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const body = btn.nextElementSibling;
+      body.classList.toggle('open', !expanded);
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+
+  document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.firstName.value.trim() || !this.lastName.value.trim() || !this.email.value.trim() || !this.role.value) {
+      const first = Array.from(this.elements).find(el => el.required && !el.value.trim());
+      if (first) first.focus();
+      return;
+    }
+    this.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
